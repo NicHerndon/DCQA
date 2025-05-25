@@ -249,7 +249,7 @@ def make_dask_data():
              )
 
 
-def dask_to_postgres():
+def dask_to_postgres(con, engine):
     "Put some data into postgres.  Assumes Dask data was generated"
     out = io.StringIO()
     df = pd.read_csv('data/dask/2000-01-02.csv', parse_dates=['timestamp'])
@@ -278,7 +278,7 @@ def dask_to_postgres():
     return out.getvalue()
 
 
-def make_bad_amtrak():
+def make_bad_amtrak(con, engine):
     "Create deliberately truncated data"
     out = io.StringIO()
     df = pd.read_csv('data/AMTRAK-Stations-Database_2012.csv')
