@@ -223,7 +223,7 @@ def not_valid(instance, schema):
         return str(err) 
 
 
-def make_missing_pg(con):
+def make_missing_pg():
     cur = con.cursor()
     cur.execute("DROP TABLE IF EXISTS missing")
     cur.execute("CREATE TABLE missing (a REAL, b CHAR(10))")
